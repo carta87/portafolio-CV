@@ -1,0 +1,412 @@
+.containerAside {
+    background-color: #232335;
+    padding: 1rem 0;
+    color: white;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.containerAside img {
+    border-radius: 100%;
+    margin: 2rem auto;
+    width: 100%;
+    box-shadow: 0 0 10px #b2b2cf;
+}
+
+.containerAside h2 {
+    border: 1px solid #727292;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.container2 {
+  // background-color: green;
+  display: grid;
+  width: 100%;
+  max-height: 42rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr  ;
+  grid-area: "HTML5          CSS3"  "Java            Sql" "Scrum          ResponsiveWebDesign";
+}
+
+.container2 .HTML5 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.container2 .CSS3 {
+  grid-column-start: 2;
+  grid-column-end: -1;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.container2 .Java {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+.container2 .Sql {
+  grid-column-start: 2;
+  grid-column-end: -1;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+.container2 .Scrum {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+
+.container2 .ResponsiveWebDesign {
+  grid-column-start: 2;
+  grid-column-end: -1;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+
+
+
+.bar {
+    margin-top: 0.3rem;
+    background: #232335;
+    display: block;
+    height: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 0 10px #b2b2cf;
+  }
+
+  .bar span {
+    height: 2rem;
+    float: left;
+    background: white;
+  }
+
+  $teamwork: 92%;
+  $Creativity: 90%;
+  $Innovation: 80%;
+  $Communication: 90%;
+  $Presetation: 85%;
+  $Motivation: 98%;
+  $VsC: 80%;
+  $Github: 80%;
+  $Netbeans: 70%;
+  $Eclipse: 75%;
+
+  .teamwork {
+    width: $teamwork;
+    animation: teamwork 2s;
+  }
+
+  .Creativity {
+    width: $Creativity;
+    animation: Creativity 2s;
+  }
+
+  .Innovation {
+    width: $Innovation;
+    animation: Innovation 2s;
+  }
+
+  .Communication {
+    width: $Communication;
+    animation: Communication 2s;
+  }
+
+  .Presetation {
+    width: $Presetation;
+    animation: Presetation 2s;
+  }
+
+  .Motivation {
+    width: $Motivation;
+    animation: Motivation 2s;
+  }
+
+  @keyframes teamwork {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: $teamwork;
+    }
+  }
+  @keyframes Creativity {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: $Creativity;
+    }
+  }
+  @keyframes Innovation {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: $Innovation;
+    }
+  }
+  @keyframes Communication {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: $Communication;
+    }
+  }
+  @keyframes Presetation {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: $Presetation;
+    }
+  }
+  @keyframes Motivation {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: $Motivation;
+    }
+  }
+  .VsC {
+    width: $VsC;
+    animation: VsC 2s;
+  }
+
+.Github {
+    width: $Github;
+    animation: Github 2s;
+}
+
+.Netbeans {
+    width: $Netbeans;
+    animation: Netbeans 2s;
+}
+
+.Eclipse {
+    width: $Eclipse;
+    animation: Eclipse 2s;
+}
+
+@keyframes VsC {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: $VsC;
+    }
+}
+
+@keyframes Github {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: $Github;
+    }
+}
+
+@keyframes Netbeans {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: $Netbeans;
+    }
+}
+
+@keyframes Eclipse {
+
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: $Eclipse;
+    }
+}
+
+  $alto: 9rem;
+  $ancho: 9rem;
+
+.circular-progress {
+    margin: 1rem auto;
+    position: relative;
+  }
+  .circular-progress, .circular-progress:before, .circular-progress:after {
+    width: $ancho;
+    height: $alto;
+    border-radius: 50%;
+  }
+  .circular-progress:before, .circular-progress:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+  }
+  .circular-progress:before {
+    padding: 0.5rem;
+    box-sizing: border-box;
+    font-size: 1rem;
+    line-height: 7rem;
+    text-transform: uppercase;
+  }
+  .circular-progress:after {
+    line-height: 10rem;
+  }
+
+  .HTML5 .circular-progress {
+    transform: rotate(162deg);
+    background: linear-gradient(0deg, white 50%, rgba(255, 255, 255, 0.2) 50%);
+  }
+  .HTML5 .circular-progress:before, .HTML5 .circular-progress:after {
+    color: white;
+  }
+  .HTML5 .circular-progress:before {
+    content: "HTML5";
+    background: #232335 content-box;
+    transform: rotate(-162deg);
+  }
+  .HTML5 .circular-progress:after {
+    content: "90%";
+    background: linear-gradient(transparent 50%, #232335 50%);
+    transform: scale(1.1) rotate(-162deg);
+  }
+
+  .CSS3 .circular-progress {
+    transform: rotate(153deg);
+    background: linear-gradient(0deg, white 50%, rgba(255, 255, 255, 0.2) 50%);
+  }
+  .CSS3 .circular-progress:before, .CSS3 .circular-progress:after {
+    color: white;
+  }
+  .CSS3 .circular-progress:before {
+    content: "CSS3";
+    background: #232335 content-box;
+    transform: rotate(-153deg);
+  }
+  .CSS3 .circular-progress:after {
+    content: "85%";
+    background: linear-gradient(transparent 50%, #232335 50%);
+    transform: scale(1.1) rotate(-153deg);
+  }
+
+  .JavaScript .circular-progress {
+    transform: rotate(140.4deg);
+    background: linear-gradient(0deg, white 50%, rgba(255, 255, 255, 0.2) 50%);
+  }
+  .JavaScript .circular-progress:before, .JavaScript .circular-progress:after {
+    color: white;
+  }
+  .JavaScript .circular-progress:before {
+    content: "JavaScript";
+    background: #232335 content-box;
+    transform: rotate(-140.4deg);
+  }
+  .JavaScript .circular-progress:after {
+    content: "78%";
+    background: linear-gradient(transparent 50%, #232335 50%);
+    transform: scale(1.1) rotate(-140.4deg);
+  }
+
+  .Java .circular-progress {
+    transform: rotate(126deg);
+    background: linear-gradient(0deg, white 50%, rgba(255, 255, 255, 0.2) 50%);
+  }
+  .Java .circular-progress:before, .Java .circular-progress:after {
+    color: white;
+  }
+  .Java .circular-progress:before {
+    content: "Java";
+    background: #232335 content-box;
+    transform: rotate(-126deg);
+  }
+  .Java .circular-progress:after {
+    content: "70%";
+    background: linear-gradient(transparent 50%, #232335 50%);
+    transform: scale(1.1) rotate(-126deg);
+  }
+
+  .Php .circular-progress {
+    transform: rotate(108deg);
+    background: linear-gradient(0deg, white 50%, rgba(255, 255, 255, 0.2) 50%);
+  }
+  .Php .circular-progress:before, .Php .circular-progress:after {
+    color: white;
+  }
+  .Php .circular-progress:before {
+    content: "Php";
+    background: #232335 content-box;
+    transform: rotate(-108deg);
+  }
+  .Php .circular-progress:after {
+    content: "60%";
+    background: linear-gradient(transparent 50%, #232335 50%);
+    transform: scale(1.1) rotate(-108deg);
+  }
+
+  .Sql .circular-progress {
+    transform: rotate(144deg);
+    background: linear-gradient(0deg, white 50%, rgba(255, 255, 255, 0.2) 50%);
+  }
+  .Sql .circular-progress:before, .Sql .circular-progress:after {
+    color: white;
+  }
+  .Sql .circular-progress:before {
+    content: "Sql";
+    background: #232335 content-box;
+    transform: rotate(-144deg);
+  }
+  .Sql .circular-progress:after {
+    content: "80%";
+    background: linear-gradient(transparent 50%, #232335 50%);
+    transform: scale(1.1) rotate(-144deg);
+  }
+
+  .Scrum .circular-progress {
+    transform: rotate(154.8deg);
+    background: linear-gradient(0deg, white 50%, rgba(255, 255, 255, 0.2) 50%);
+  }
+  .Scrum .circular-progress:before, .Scrum .circular-progress:after {
+    color: white;
+  }
+  .Scrum .circular-progress:before {
+    content: "Scrum";
+    background: #232335 content-box;
+    transform: rotate(-154.8deg);
+  }
+  .Scrum .circular-progress:after {
+    content: "86%";
+    background: linear-gradient(transparent 50%, #232335 50%);
+    transform: scale(1.1) rotate(-154.8deg);
+  }
+
+  .ResponsiveWebDesign .circular-progress {
+    transform: rotate(135deg);
+    background: linear-gradient(0deg, white 50%, rgba(255, 255, 255, 0.2) 50%);
+  }
+  .ResponsiveWebDesign .circular-progress:before, .ResponsiveWebDesign .circular-progress:after {
+    color: white;
+  }
+  .ResponsiveWebDesign .circular-progress:before {
+    content: "Responsive";
+    background: #232335 content-box;
+    transform: rotate(-135deg);
+  }
+  .ResponsiveWebDesign .circular-progress:after {
+    content: "75%";
+    background: linear-gradient(transparent 50%, #232335 50%);
+    transform: scale(1.1) rotate(-135deg);
+  }

@@ -1,0 +1,33 @@
+.containerContent {
+    padding-left: 4rem;
+    margin-top: -200px;
+}
+
+.containerContent article h2 {
+    color: #232335;
+    margin: 2rem 1rem 0 0;
+    font: bold;
+}
+
+.referencias {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin-top: 10px;
+}
+
+.referencia {
+  width: 48%;
+}
+
+.referencia h3 {
+  color: #1a1a1a;
+  border-bottom: 2px solid #3366cc;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.referencia p {
+  margin: 3px 0;
+  font-size: 14px;
+}

@@ -1,6 +1,6 @@
 [build]
   base = "Curriculum-FrontEnd-Angular-ES"
-  publish = "Curriculum-FrontEnd-Angular-ES/dist/CV-CarlosTafur"
+  publish = "dist/CV-CarlosTafur"
   command = "npm run build"
 
 [build.environment]

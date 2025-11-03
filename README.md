@@ -1,5 +1,7 @@
 # portafolio-CV
 
+URL Portafolio: https://portafolio-carlos-tafur.netlify.app/
+
 URL de hoja de vida https://cv-carlos-tafur.netlify.app/ 
 
 Instruciones: 

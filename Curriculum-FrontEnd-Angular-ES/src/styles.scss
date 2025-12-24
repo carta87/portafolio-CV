@@ -51,6 +51,11 @@ html {
     grid-template-rows: minmax(15rem, auto) minmax(10rem, auto) minmax(3rem, 0.5rem) minmax(2rem, 0.5rem);
 }
 
+.containerHeader h2 {
+  text-align: left;
+  margin: 1% auto;
+}
+
 .containerHeader{
      width: 100%;
     grid-column-start: 1;

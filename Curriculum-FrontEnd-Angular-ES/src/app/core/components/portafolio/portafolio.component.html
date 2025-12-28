@@ -1,0 +1,234 @@
+<!-- BOTÓN SCROLL TOP -->
+<i class="fa fa-arrow-up scroll-top" aria-hidden="true" (click)="scrollToTop()">
+</i>
+
+<!-- ===== SECCIÓN 1 ===== -->
+<section class="sec1" id="section1">
+
+  <div class="menuBar">
+    <ul>
+      <li><a href="#section1">Home</a></li>
+      <li><a href="#section2">About</a></li>
+      <li><a href="#section3">Skill</a></li>
+      <li><a href="#section4">Contact</a></li>
+    </ul>
+  </div>
+
+  <div class="navBar">
+    <div class="logo">
+      <h1>Carlos Alberto Tafur.</h1>
+    </div>
+
+    <div class="navBar__menu">
+      <ul>
+        <li><a href="#section1">Home</a></li>
+        <li><a href="#section2">About</a></li>
+        <li><a href="#section3">Skill</a></li>
+        <li><a href="#section4">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="sec1__menuIcon" (click)="toggleMenu()"></div>
+  </div>
+
+  <div class="sec1__container">
+    <div class="sec1__content">
+      <div class="sec1__contentDetail">
+
+        <div class="sec1__contentHider">
+          <h1>¡Hola soy <span>Carlos Alberto</span></h1>
+        </div>
+
+        <div class="sec1__contentHider">
+          <h1>Desarrollador Full Stack!</h1>
+        </div>
+
+      </div>
+
+      <a href="https://github.com/carta87" target="_blank">
+        Follow me <i class="fab fa-github"></i>
+      </a>
+    </div>
+
+    <div class="sec1__imgContainer">
+      <div class="sec1__imgBx">
+        <img src="assets/Perfil.png" alt="Perfil Carlos" width="300" />
+        <span class="sec1__design3"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECCIÓN 2 ===== -->
+<section class="sec2" id="section2">
+
+  <div class="sec2__heading">
+    <h2>About me</h2>
+  </div>
+
+  <div class="sec2__container">
+
+    <div class="sec2__aboutme1" data-aos="fade-up">
+      <div class="sec2__aboutme1Img">
+        <img src="assets/foto-principal.jpg" alt="Perfil" width="200" />
+      </div>
+
+      <h2>Carlos Tafur</h2>
+
+      <div class="sec2__aboutme1Social">
+        <ul>
+          <li>
+            <a href="https://www.linkedin.com/in/carlosalbertotafur/" target="_blank">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/carta87" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sec2__aboutme2" data-aos="fade-up" data-aos-delay="300">
+      <p>
+        ¡Hola! 👋 Soy Carlos Tafur, desarrollador de software con más de tres años de
+        experiencia en estudio y práctica de la programación. Me enfoco en crear
+        soluciones de software de alta calidad y en el aprendizaje continuo.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== SECCIÓN 3 ===== -->
+<section class="sec3" id="section3">
+  <h1>Skills</h1>
+  <div class="sec3__container">
+    <div class="sec3__box1">
+      <div class="sec3__content1" data-aos="fade-right">
+        <h2 class="rol">Front End</h2>
+        <ul id="ul-square">
+          <li style="color:red">
+            <h2 style="color:white;text-align:left">HTML</h2>
+          </li>
+          <li style="color:red">
+            <h2 style="color:white;text-align:left">CSS</h2>
+          </li>
+          <li style="color:red">
+            <h2 style="color:white;text-align:left">JAVASCRIPT</h2>
+          </li>
+          <li style="color:red">
+            <h2 style="color:white;text-align:left">ANGULAR</h2>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+
+
+    <div class="sec3__box2">
+      <div class="sec3__content1" data-aos="fade-right">
+        <h2 class="rol">Back End</h2>
+        <ul id="ul-square">
+          <li style="color:red">
+            <h2 style="color:white;text-align:left">JAVA</h2>
+          </li>
+          <li style="color:red">
+            <h2 style="color:white;text-align:left">C#</h2>
+          </li>
+          <li style="color:red">
+            <h2 style="color:white;text-align:left">PHP</h2>
+          </li>
+          <li style="color:red">
+            <h2 style="color:white;text-align:left">SQL</h2>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+
+
+    <div class="sec3__content1" data-aos="fade-right">
+      <h2 class="rol">Herramientas</h2>
+      <ul id="ul-square">
+        <li style="color:red">
+          <h2 style="color:white;text-align:left">AZURE</h2>
+        </li>
+        <li style="color:red">
+          <h2 style="color:white;text-align:left">BITBUCKET</h2>
+        </li>
+        <li style="color:red">
+          <h2 style="color:white;text-align:left">GIT</h2>
+        </li>
+        <li style="color:red">
+          <h2 style="color:white;text-align:left">Sonar</h2>
+        </li>
+        <li style="color:red">
+          <h2 style="color:white;text-align:left">JENKINS</h2>
+        </li>
+      </ul>
+    </div>
+    <div class="sec4__content1" data-aos="fade-right">
+      <p class="rol" style="color:white">Mira! algunos de mis proyectos.</p>
+
+      <ul class="ul-square">
+        <li *ngFor="let proyecto of proyectos">
+          <h2><a [href]="proyecto.url">{{ proyecto.nombre }}</a></h2>
+        </li>
+      </ul>
+
+    </div>
+
+  </div>
+
+  <h1 data-aos="fade-right">Certificados</h1>
+  <div class="botonera">
+    <a href="./certificados-Mision-Tic.html">
+      <button class="certificados" style="padding: 10px 4px">Mision Tic</button>
+    </a>
+    <a href="./certificados-Platzi.html">
+      <button class="certificados" style="padding: 10px 4px">Platzi</button>
+    </a>
+    <a href="./certificados-otros.html">
+      <button class="certificados" style="padding: 10px 4px">Otros</button>
+    </a>
+  </div>
+
+</section>
+
+<!-- ===== SECCIÓN 4 ===== -->
+<section class="sec4" id="section4">
+
+  <div class="sec4__container">
+    <div class="sec4__box1">
+
+      <p>
+        ¿Buscas a alguien que entregue resultados reales?
+        Estoy listo para ayudarte a alcanzar tus objetivos de software.
+      </p>
+
+      <div class="sec4__content2Icon">
+        <i class="fas fa-envelope"></i>
+        <h2>cart_albert@hotmail.com</h2>
+      </div>
+
+      <ul>
+        <li>
+          <a href="https://www.linkedin.com/in/carlosalbertotafur/" target="_blank">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/carta87" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</section>

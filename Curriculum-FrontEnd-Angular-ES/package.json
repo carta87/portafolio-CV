@@ -19,7 +19,10 @@
     "@angular/platform-browser": "~11.2.9",
     "@angular/platform-browser-dynamic": "~11.2.9",
     "@angular/router": "~11.2.9",
+    "@fortawesome/fontawesome-free": "^7.1.0",
+    "aos": "^2.3.4",
     "CV-Carlos-tafur": "file:",
+    "gsap": "^3.14.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"

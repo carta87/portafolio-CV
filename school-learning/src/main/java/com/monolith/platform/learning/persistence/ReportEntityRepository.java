@@ -17,57 +17,66 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
-
-@Slf4j
 @Service
+@Slf4j
 public class ReportEntityRepository implements IReportRepository {
 
     @Override
     public ResponseEntity<byte[]> reporteComprobante(StudentDTO studentDTO) {
-        int numeroComprobante = 1245;
-        numeroComprobante++;
 
-        String nombreArchivo = ConstantReport.NAME_REPORT;
-
-        String filePath =
-                ConstantReport.PATH_ORIGIN_PRINCIPAL
-                        + nombreArchivo+ ConstantReport.ARCHIVE_EXTENSION_JRXML;
+        int numeroComprobante = 1246;
 
         LocalDateTime date = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(ConstantReport.DATE_HOUR);
+        DateTimeFormatter formatter =
+                DateTimeFormatter.ofPattern(ConstantReport.DATE_HOUR);
 
         Map<String, Object> parameters = new HashMap<>();
         parameters.put(ConstantReport.NUMBER_PROOF, String.valueOf(numeroComprobante));
         parameters.put(ConstantReport.DATE_PRO0F, formatter.format(date));
         parameters.put(ConstantReport.VALUE_PAID, new BigDecimal(30000));
         parameters.put(ConstantReport.HALF_PAYMENT, ConstantReport.CASH);
-        parameters.put(ConstantReport.NAME_STUDENT, studentDTO.name() + ConstantGeneral.SPACE + studentDTO.lastName());
-        parameters.put(ConstantReport.NAME_ATTENDANT, studentDTO.attendant().name() + ConstantGeneral.SPACE + studentDTO.attendant().lastName());
-        parameters.put(ConstantReport.IMAGE_DIR, ConstantReport.PATH_IMAGE);
+        parameters.put(ConstantReport.NAME_STUDENT,
+                studentDTO.name() + " " + studentDTO.lastName());
+        parameters.put(ConstantReport.NAME_ATTENDANT,
+                studentDTO.attendant().name() + " " + studentDTO.attendant().lastName());
 
-        /*try {
-            JasperReport report = JasperCompileManager.compileReport(filePath);
-            JasperPrint print =  print = JasperFillManager.fillReport(report, parameters, new JREmptyDataSource());
-            JasperExportManager.exportReportToPdfFile(print, destinationPath);
-            return ConstantesReportes.REPORTE_EXITOSO;
-        } catch (JRException e) {
-            return ConstantesReportes.REPORTE_FALLIDO;
-        }*/
-        try {
-            JasperReport report = JasperCompileManager.compileReport(filePath);
-            JasperPrint print = JasperFillManager.fillReport(report, parameters, new JREmptyDataSource());
+        // 📌 CLAVE: imágenes desde classpath
+        parameters.put(
+                ConstantReport.IMAGE_DIR,
+                getClass().getResource(ConstantReport.IMAGE_PATH).toString()
+        );
 
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            JasperExportManager.exportReportToPdfStream(print, byteArrayOutputStream);
-            byte[] pdfBytes = byteArrayOutputStream.toByteArray();
+        try (var reportStream =
+                     getClass().getResourceAsStream(ConstantReport.REPORT_JRXML_PATH)) {
+
+            if (reportStream == null) {
+                throw new RuntimeException("No se encontró el JRXML en classpath");
+            }
+
+            JasperReport report =
+                    JasperCompileManager.compileReport(reportStream);
+
+            JasperPrint print =
+                    JasperFillManager.fillReport(report, parameters, new JREmptyDataSource());
+
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            JasperExportManager.exportReportToPdfStream(print, outputStream);
 
             HttpHeaders headers = new HttpHeaders();
-            headers.add("Content-Disposition", "inline; filename=" +
-                    nombreArchivo+studentDTO.name() + studentDTO.lastName() + ConstantReport.ARCHIVE_EXTENSION_PDF);
+            headers.add(
+                    HttpHeaders.CONTENT_DISPOSITION,
+                    "inline; filename=" +
+                            ConstantReport.NAME_REPORT +
+                            "_" +
+                            studentDTO.name() +
+                            studentDTO.lastName() +
+                            ConstantReport.ARCHIVE_EXTENSION_PDF
+            );
 
             log.info(ConstantReport.REPORT_SUCCESSFUL);
-            return new ResponseEntity<>(pdfBytes, headers, HttpStatus.OK);
-        } catch (JRException e) {
+            return new ResponseEntity<>(outputStream.toByteArray(), headers, HttpStatus.OK);
+
+        } catch (Exception e) {
             log.error(ConstantReport.REPORT_FAILED, e);
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }

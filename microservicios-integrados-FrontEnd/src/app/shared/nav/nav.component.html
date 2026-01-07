@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand">Logo</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mynavbar">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/inicio']">Home</a>
+        </li>
+        @if (userLoginOn) {
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/cursos/listar']">Cursos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/estudiantes/listar']">Estudiantes</a>
+        </li>
+        }
+      </ul>
+      <form class="d-flex">
+        <a *ngIf="userLoginOn" class="navbar-brand">Bienvenido {{userName | titlecase }}</a>
+        <ul class="navbar-nav me-auto">
+          <li *ngIf="!userLoginOn" class="nav-item">
+            <a class="nav-link" [routerLink]="['usuarios/create']">Register</a>
+          </li>
+          <li *ngIf="userLoginOn" class="nav-item">
+            <a class="nav-link" (click)="logout()" [routerLink]="['/inicio']">logout</a>
+          </li>
+          <li *ngIf="!userLoginOn" class="nav-item">
+            <a class="nav-link" [routerLink]="['/seguridad/login']">Login</a>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </div>
+</nav>

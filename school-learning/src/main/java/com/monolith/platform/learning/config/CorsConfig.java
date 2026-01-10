@@ -12,7 +12,7 @@ public class CorsConfig implements WebMvcConfigurer {
                 .allowedOrigins(
                         "http://localhost:4200",              // Angular local
                         "https://monolito-backend.onrender.com", // Render (opcional)
-                        "https://portafolio-cv-2b0g.onrender.com"
+                        "https://monolito-plataformaonline.onrender.com/"
                 )
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("Content-Type", "Authorization", "Accept")

@@ -20,8 +20,12 @@ public class ErrorHandler {
     @ExceptionHandler(value = RuntimeException.class)
     public ResponseEntity<ErrorDTO> runtimeExceptionHandler(RuntimeException ex){
         if (ex.getMessage().contains("You exceeded your current quota")){
-            return factoryResponseErrorDto("OpenAI-exceededYourCurrentQuota",
+            return factoryResponseErrorDto("OpenAI-exceededYourCurrentQuotaException",
                     ConstantGeneral.ERROR_OPEN_IA_CURRENT_QUOTA,
+                    HttpStatus.INTERNAL_SERVER_ERROR);
+        } else if (ex.getMessage().contains("Incorrect API key provided")) {
+            return factoryResponseErrorDto("OpenAI-incorrectApiKeyException",
+                    ConstantGeneral.ERROR_OPEN_IA_API_KEY_INCORRECT,
                     HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return factoryResponseErrorDto("runtimeException",

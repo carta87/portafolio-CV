@@ -38,19 +38,22 @@ export class CreateComponent implements OnInit {
     this.getCursos();
   }
 
-  public create() {
+  public create(): void {
     if (!this.fgvalidacion.valid) {
       Object.keys(this.fgvalidacion.controls).forEach(controlName => {
         this.fgvalidacion.get(controlName)?.markAsDirty();
       });
-      Swal.fire('Advertencia', 'Por favor completa todos los campos correctamente', 'warning');
+      Swal.fire(
+        'Advertencia',
+        'Por favor completa todos los campos correctamente',
+        'warning'
+      );
       return;
     }
 
     const cursoId = Number(this.fgvalidacion.value.cursoIdEstudiante);
     const cursoSeleccionado = this.listaCourse.find(c => c.id === cursoId);
 
-    // 🔴 VALIDACIÓN OBLIGATORIA
     if (!cursoSeleccionado) {
       Swal.fire('Error', 'Curso inválido', 'error');
       return;
@@ -61,14 +64,12 @@ export class CreateComponent implements OnInit {
       name: this.fgvalidacion.value.nombreEstudiante ?? '',
       lastName: this.fgvalidacion.value.apellidosEstudiante ?? '',
       email: this.fgvalidacion.value.emailEstudiante ?? '',
-
       courseDTO: {
         id: cursoSeleccionado.id,
         numberCourse: cursoSeleccionado.numberCourse,
         name: cursoSeleccionado.name,
         teacher: cursoSeleccionado.teacher
       },
-
       attendant: {
         name: this.fgvalidacion.value.nombreAcudiente ?? '',
         lastName: this.fgvalidacion.value.apellidosAcudiente ?? '',
@@ -76,23 +77,37 @@ export class CreateComponent implements OnInit {
       }
     };
 
+    // 🔵 MENSAJE DE CARGA
+    Swal.fire({
+      title: 'Procesando solicitud',
+      text: 'Generando comprobante, por favor espere...',
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      didOpen: () => {
+        Swal.showLoading();
+      }
+    });
+
     this.estudianteService.saveAndComprobanteEstudiante(estudianteData).subscribe({
       next: (response) => {
+        Swal.close();
+
         const blob = new Blob([response], { type: 'application/pdf' });
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
         a.download = `comprobantePago_${this.fgvalidacion.value.nombreEstudiante}_${this.fgvalidacion.value.apellidosEstudiante}.pdf`;
         a.click();
+
         Swal.fire('Éxito', 'Estudiante registrado correctamente', 'success');
         this.router.navigate(['estudiantes/listar']);
       },
       error: () => {
+        Swal.close();
         Swal.fire('Error', 'No se logró registrar el estudiante', 'error');
       }
     });
   }
-
 
   public getCursos() {
     this.courseService.getAllCursos(this.page - 1, 10, 'id', 'asc').subscribe((data) => {

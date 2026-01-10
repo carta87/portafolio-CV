@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { LogingRequest } from '../../../common/modelos/loginRequest.model';
 import { LoginService } from '../../../servicios/auth/login.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -41,25 +41,67 @@ export class LoginComponent {
     return this.loginForm.controls['username'];
   }
 
-  public login (){
-    if(this.loginForm.valid){
-      this.loginService.login(this.loginForm.value as LogingRequest).subscribe({
-      next: (data)=>{
-        console.log("info de login token: " + data.token);
-      },
-      error:(error) =>{
-        console.error(error);
-        this.loginError = error;
-      },
-      complete: ()=>{
-        console.info("login completo");
+  public login(): void {
+
+  if (!this.loginForm.valid) {
+    Swal.fire(
+      'Advertencia',
+      'Ingrese usuario y contraseña correctamente',
+      'warning'
+    );
+    return;
+  }
+
+  let loadingShown = false;
+
+  // ⏳ Temporizador de 5 segundos
+  const loadingTimer = setTimeout(() => {
+    loadingShown = true;
+    Swal.fire({
+      title: 'Procesando solicitud',
+      text: 'Conectando al backend, por favor espere...',
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      didOpen: () => {
+        Swal.showLoading();
+      }
+    });
+  }, 5000);
+
+  this.loginService.login(this.loginForm.value as LogingRequest)
+    .subscribe({
+      next: (data) => {
+        clearTimeout(loadingTimer);
+
+        if (loadingShown) {
+          Swal.close();
+        }
+
+        localStorage.setItem('token', data.token);
+
+        Swal.fire(
+          'Bienvenido',
+          'Inicio de sesión exitoso',
+          'success'
+        );
+
         this.router.navigateByUrl('/inicio');
         this.loginForm.reset();
+      },
+      error: () => {
+        clearTimeout(loadingTimer);
+
+        if (loadingShown) {
+          Swal.close();
+        }
+
+        Swal.fire(
+          'Error',
+          'Usuario o contraseña incorrectos',
+          'error'
+        );
       }
-      })
-    }else{
-      console.log("error al ingresar los datos")
-    }
+    });
   }
 
   public logout(){

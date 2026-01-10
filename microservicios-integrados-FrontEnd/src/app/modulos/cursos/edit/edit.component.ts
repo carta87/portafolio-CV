@@ -47,7 +47,7 @@ export class EditComponent implements OnInit {
           nombreCurso: data.name,
           nombreProfesor: data.teacher,
         });
-      },
+      }
     });
   }
 
@@ -93,6 +93,30 @@ export class EditComponent implements OnInit {
           this.mostrarFormulario = true;
         }
       },
+      error: (error) => {
+        console.error('Error al obtener cursos:', error);
+
+        // 5️⃣ Manejo por código HTTP
+        if (error.status === 429) {
+          Swal.fire(
+            'Demasiadas solicitudes',
+            'Espere unos segundos y vuelva a intentar.',
+            'warning'
+          );
+        } else if (error.status === 404) {
+          Swal.fire(
+            'No encontrado',
+            'El id curso no existe, valida nuevamente el id de curso.',
+            'error'
+          );
+        } else {
+          Swal.fire(
+            'Error',
+            'No se pudieron cargar los cursos.',
+            'error'
+          );
+        }
+      }
     });
   }
 

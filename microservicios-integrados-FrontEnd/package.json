@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "postbuild": "cp dist/proyecto-microservicios/browser/index.csr.html dist/proyecto-microservicios/browser/index.html",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:proyecto-microservicios": "node dist/proyecto-microservicios/server/server.mjs"

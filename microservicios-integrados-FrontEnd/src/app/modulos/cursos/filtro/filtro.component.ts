@@ -47,6 +47,30 @@ export class FiltroComponent {
           this.listaEstudiantes = data.studentDTOList || [];
         }
       },
+      error: (error) => {
+        console.error('Error al obtener cursos:', error);
+
+        // 5️⃣ Manejo por código HTTP
+        if (error.status === 429) {
+          Swal.fire(
+            'Demasiadas solicitudes',
+            'Espere unos segundos y vuelva a intentar.',
+            'warning'
+          );
+        } else if (error.status === 404) {
+          Swal.fire(
+            'No encontrado',
+            'El numero curso no existe, valida nuevamente el numero de curso.',
+            'error'
+          );
+        } else {
+          Swal.fire(
+            'Error',
+            'No se pudieron cargar los cursos.',
+            'error'
+          );
+        }
+      }
     });
   }
 

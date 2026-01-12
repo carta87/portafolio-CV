@@ -5,6 +5,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { GetComponent } from './get/get.component';
 import { EditComponent } from './edit/edit.component';
 import { FiltroComponent } from './filtro/filtro.component';
+import { InfoComponent } from './info/info.component';
 
 const routes: Routes = [
   {
@@ -16,7 +17,7 @@ const routes: Routes = [
       { path: 'editar/:id', component: EditComponent },
       { path: 'listar', component: GetComponent },
       { path: 'filtro', component: FiltroComponent },
-      { path: 'info', component: FiltroComponent }
+      { path: 'info', component: InfoComponent }
     ],
   },
   {

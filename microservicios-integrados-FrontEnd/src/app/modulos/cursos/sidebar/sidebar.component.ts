@@ -26,11 +26,11 @@ export class SidebarComponent {
       ruta: '/cursos/editar'
     },
     {
-      texto: 'Filtrar inscritos por numero de curso',
+      texto: 'Filtrar inscritos por numero de curso.',
       ruta: '/cursos/filtro'
     },
     {
-      texto: 'Filtrar información de los cursos',
+      texto: 'Filtrar información de los cursos.',
       ruta: '/cursos/info'
     }
   ]

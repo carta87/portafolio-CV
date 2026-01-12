@@ -1,4 +1,4 @@
-package com.monolith.platform.learning.domain.service.course;
+package com.monolith.platform.learning.domain.service.GeneralAi;
 
 import dev.langchain4j.service.SystemMessage;
 import dev.langchain4j.service.UserMessage;
@@ -6,31 +6,24 @@ import dev.langchain4j.service.V;
 import dev.langchain4j.service.spring.AiService;
 
 @AiService
-public interface AiServiceCourse {
-
-    @UserMessage("""
-                    Genrera un saludo de texto de maximo de 200 palabras
-                    donde vas a animar a la capacitacion de formacion por
-                    medio de cursos online sobe temas de desarrollo de software
-                    en la plataforma con el nombre {{platform}}.
-                    """)
-    String welcomeCoursePlatform(String platform);
+public interface AiServiceGeneral {
 
     @SystemMessage("""
-        Eres un experto en formación académica y desarrollo de software.
-        Tu misión es explicar el contenido del curso de forma clara,
-        motivadora y profesional, resaltando su valor práctico.
+        Eres un experto en comunicación educativa y marketing académico.
+        Debes generar un mensaje inspirador, cercano y profesional,
+        manteniendo la esencia del texto original.
         """)
     @UserMessage("""
-        Explica el contenido del curso con la siguiente información:
+        Basándote en la siguiente información institucional:
 
-        Número de curso: {{numberCourse}}
+        {{baseMessage}}
 
-        Describe qué aprenderá el estudiante, 
-        qué habilidades desarrollará y 
-        por qué este curso es importante en su formación profesional.
+        Genera un nuevo mensaje de bienvenida (máximo 200 palabras)
+        para una plataforma de cursos online llamada {{platform}},
+        manteniendo un tono motivador e inspirador.
         """)
-    String contentCourse(
-            @V("numberCourse") Long numberCourse
+    String welcomeCoursePlatform(
+            @V("platform") String platform,
+            @V("baseMessage") String baseMessage
     );
 }

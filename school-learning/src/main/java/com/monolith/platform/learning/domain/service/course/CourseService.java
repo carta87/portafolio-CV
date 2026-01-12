@@ -23,11 +23,11 @@ public class CourseService {
        return iCourseRepository.update(course);
     }
 
-    @Tool("busca todos los cursos disponibles que existan para sugerir formaciones al usuario")
     public Page<CourseDTO> findAll(int page, int elements, String sortBy, String sortDirection){
         return iCourseRepository.findAll(page, elements, sortBy, sortDirection);
     }
 
+    @Tool("busca el numero de curso disponible para darle una explicacion del contenido del mismo")
     public CourseDTO findById(Long id){
         return iCourseRepository.findById(id);
     }

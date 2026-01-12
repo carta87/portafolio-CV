@@ -8,6 +8,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class CorsConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
+        // 🌍 ENDPOINT PÚBLICO (SIN JWT)
+        registry.addMapping("/util/welcomeCoursePlatform")
+                .allowedMethods("GET")
+                .allowedHeaders("*")
+                .allowCredentials(false);
+
+        // 🔐 ENDPOINTS PROTEGIDOS (CON JWT)
         registry.addMapping("/**")
                 .allowedOrigins(
                         "http://localhost:4200",              // Angular local

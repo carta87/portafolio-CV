@@ -6,7 +6,6 @@ import com.monolith.platform.learning.domain.service.course.AiServiceCourse;
 import com.monolith.platform.learning.domain.service.course.CourseService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,11 +16,8 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class CourseController {
 
-    @Value("${spring.application.name}")
-    private String platform;
     private final CourseService courseService;
     private final AiServiceCourse aiServiceCourse;
-
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -74,13 +70,8 @@ public class CourseController {
                 ResponseEntity.badRequest().body(false);
     }
 
-    @GetMapping("/welcomeCoursePlatform")
-    public ResponseEntity<String> welcomeCoursePlatform(){
-        return ResponseEntity.ok(this.aiServiceCourse.welcomeCoursePlatform(this.platform));
-    }
-
-    @GetMapping("/explainContent/{amount}")
-    public ResponseEntity<String> explainContentCourse(@PathVariable Long amount){
-        return ResponseEntity.ok(this.aiServiceCourse.contentCourse(amount));
+    @GetMapping("/explainContent/{numberCourse}")
+    public ResponseEntity<String> explainContentCourse(@PathVariable Long numberCourse){
+        return ResponseEntity.ok(this.aiServiceCourse.contentCourse(numberCourse));
     }
 }

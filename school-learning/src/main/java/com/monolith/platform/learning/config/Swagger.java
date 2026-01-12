@@ -28,16 +28,16 @@ import org.springframework.http.HttpHeaders;
         ),
         servers = {
                 @Server(
-                        description = "PROD - SERVER",
-                        url = "https://monolito-backend.onrender.com/platform-learning/api"
-                ),
-                @Server(
                         description = "DEV - SERVER",
                         url = "http://localhost:8080/platform-learning/api"
                 ),
                 @Server(
                         description = "PROD - SERVER",
                         url = "http://localhost:9090/platform-learning/api"
+                ),
+                @Server(
+                        description = "PROD - SERVER",
+                        url = "https://monolito-backend.onrender.com/platform-learning/api"
                 )
         },
         security = @SecurityRequirement(

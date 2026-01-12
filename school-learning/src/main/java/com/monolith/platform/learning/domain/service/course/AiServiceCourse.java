@@ -18,11 +18,19 @@ public interface AiServiceCourse {
 
     @SystemMessage("""
         Eres un experto en formación académica y desarrollo de software.
-        Tu objetivo es convencer al usuario del valor de la capacitación.
+        Tu misión es explicar el contenido del curso de forma clara,
+        motivadora y profesional, resaltando su valor práctico.
         """)
     @UserMessage("""
-        Explica el contenido del curso y su impacto innovador.
-        Genera un máximo de {{amount}} propuestas claras y concretas.
+        Explica el contenido del curso con la siguiente información:
+
+        Número de curso: {{numberCourse}}
+
+        Describe qué aprenderá el estudiante, 
+        qué habilidades desarrollará y 
+        por qué este curso es importante en su formación profesional.
         """)
-    String contentCourse(@V("amount") Long amount);
+    String contentCourse(
+            @V("numberCourse") Long numberCourse
+    );
 }

@@ -38,6 +38,7 @@ public class SecurityConfig {
                 //.cors(AbstractHttpConfigurer::disable)
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(http -> {
+                    http.requestMatchers("/util/welcomeCoursePlatform").permitAll();
                     http.requestMatchers("/register/**").permitAll();
                     http.requestMatchers("/login/**").permitAll();
                     http.requestMatchers("/v3/api-docs/**").permitAll();

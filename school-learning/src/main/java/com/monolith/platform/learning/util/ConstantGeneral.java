@@ -13,8 +13,7 @@ public final class ConstantGeneral {
     public static final String ERROR_OPEN_IA_API_KEY_INCORRECT = "La API key OpenAI es incorecta.";
     public static final String FALLBACK_MESSAGE = """
         <p><i>Somos un equipo de profesionales de emprendedores, soñadores, amantes de la educacion, intrépidos en el servicio de gestion de cursos academicos.</i></p>
-        <p><i>Aspiramos a mejorar la vida de las personas aportando nuestro compromiso, eficiencia y calidad
-            a nuestros clientes. </i></p> <br>
+        <p><i>Aspiramos a mejorar la vida de las personas aportando nuestro compromiso, eficiencia y calidad a nuestros clientes. </i></p>
         <p><i>Creado Sin OpenAI</i></p>
         """;
 }

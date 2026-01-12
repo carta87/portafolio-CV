@@ -13,11 +13,8 @@
       <br>
       @if (!userLoginOn) {
       <div class="margin-mensaje-home">
-        <p><i>Somos un equipo de profesionales de emprendedores, soñadores,
-            amantes de la educacion, intrépidos en el servicio de gestion de cursos academicos.</i></p>
-        <p><i>Aspiramos a mejorar la vida de las personas aportando nuestro compromiso, eficiencia y calidad
-            a nuestros clientes. </i></p> <br>
-        <p>¡Si tu también sueñas, únete a nosotros! <i><strong><a [routerLink]="['/seguridad/login']"
+        <p><i>{{informacionInicial}}
+      <strong><a [routerLink]="['/seguridad/login']"
                 class="btn text-primary">Iniciar sesion</a></strong></i></p>
       </div>
       } @else {

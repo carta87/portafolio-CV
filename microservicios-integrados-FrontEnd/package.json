@@ -1,14 +1,14 @@
 {
-  "name": "proyecto-microservicios",
+  "name": "Monolino-plataformaonline",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "postbuild": "cp dist/proyecto-microservicios/browser/index.csr.html dist/proyecto-microservicios/browser/index.html",
+    "postbuild": "cp dist/Monolino-plataformaonline/browser/index.csr.html dist/Monolino-plataformaonline/browser/index.html",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:proyecto-microservicios": "node dist/proyecto-microservicios/server/server.mjs"
+    "serve:ssr:Monolino-plataformaonline": "node dist/Monolino-plataformaonline/server/server.mjs"
   },
   "private": true,
   "dependencies": {
@@ -27,7 +27,7 @@
     "jwt-decode": "^4.0.0",
     "mdb-ui-kit": "^8.0.0",
     "ngx-pagination": "^6.0.3",
-    "proyecto-microservicios": "file:",
+    "Monolino-plataformaonline": "file:",
     "rxjs": "~7.8.0",
     "sweetalert2": "^11.14.2",
     "tslib": "^2.3.0",

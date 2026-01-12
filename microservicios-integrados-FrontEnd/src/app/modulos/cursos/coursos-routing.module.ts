@@ -16,6 +16,7 @@ const routes: Routes = [
       { path: 'editar/:id', component: EditComponent },
       { path: 'listar', component: GetComponent },
       { path: 'filtro', component: FiltroComponent },
+      { path: 'info', component: FiltroComponent }
     ],
   },
   {

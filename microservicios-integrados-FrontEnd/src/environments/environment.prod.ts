@@ -10,5 +10,7 @@ export const environment = {
   //render
   apiUrlAuth: 'https://monolito-backend.onrender.com/platform-learning/api',
   apiUrlStudent: 'https://monolito-backend.onrender.com/platform-learning/api/student',
-  apiUrlCourse: 'https://monolito-backend.onrender.com/platform-learning/api/course'
+  apiUrlCourse: 'https://monolito-backend.onrender.com/platform-learning/api/course',
+  apiUrlGeneral: 'https://monolito-backend.onrender.com/platform-learning/api/util'
+
 };

@@ -12,5 +12,5 @@ import { NavComponent } from "./shared/nav/nav.component";
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'proyecto-microservicios';
+  title = 'Monolino-plataformaonline';
 }

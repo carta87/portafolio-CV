@@ -16,4 +16,4 @@ Run `ng build` local en render `ng run build` to build the project. The build ar
 
 ## Build render
 
-Run `ng run build` to build the project. The build artifacts will be stored in the `dist/proyecto-microservicios/browser` directory, Rewrite /*  →  /index.html
+Run `ng run build` to build the project. The build artifacts will be stored in the `dist/Monolino-plataformaonline/browser` directory, Rewrite /*  →  /index.html

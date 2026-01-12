@@ -30,7 +30,7 @@ export class GetComponent implements OnInit {
     Swal.fire('Error', 'Ingrese un número de página válido.', 'error');
     return;
   }
-
+  
   // 2️⃣ Consumir servicio
   this.cursosService
     .getAllCursos(this.page - 1, 10, 'id', 'asc')
@@ -75,9 +75,9 @@ export class GetComponent implements OnInit {
         this.listaCourse = [];
       }
     });
-}
+  }
 
-  public delteCurso(id: number) {
+  public deleteCurso(id: number) {
     Swal.fire({
       title: '¿Está seguro de eliminar el registro?',
       confirmButtonText: 'Aceptar',

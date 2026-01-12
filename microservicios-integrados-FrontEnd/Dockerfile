@@ -20,7 +20,7 @@ RUN npm run build -- --configuration production
 FROM nginx:alpine
 
 # Copiar los archivos construidos a Nginx
-COPY --from=build /app/dist/proyecto-microservicios/browser /usr/share/nginx/html
+COPY --from=build /app/dist/Monolino-plataformaonline/browser /usr/share/nginx/html
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 
 # Exponer el puerto

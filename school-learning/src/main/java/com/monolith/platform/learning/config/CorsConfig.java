@@ -10,6 +10,10 @@ public class CorsConfig implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry) {
         // 🌍 ENDPOINT PÚBLICO (SIN JWT)
         registry.addMapping("/util/welcomeCoursePlatform")
+                .allowedOrigins(
+                        "http://localhost:4200",
+                        "https://monolito-plataformaonline.onrender.com"
+                )
                 .allowedMethods("GET")
                 .allowedHeaders("*")
                 .allowCredentials(false);

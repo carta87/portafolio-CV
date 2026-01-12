@@ -13,8 +13,8 @@
       <br>
       @if (!userLoginOn) {
       <div class="margin-mensaje-home">
-        <p><i>{{informacionInicial}}
-      <strong><a [routerLink]="['/seguridad/login']"
+        <div [innerHTML]="informacionInicial"></div>
+           <p><strong>¡Si tu también sueñas, únete a nosotros!</strong> <i><strong><a [routerLink]="['/seguridad/login']"
                 class="btn text-primary">Iniciar sesion</a></strong></i></p>
       </div>
       } @else {

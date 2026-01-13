@@ -1,5 +1,5 @@
 export interface RegisterRequest{
-  firsName: string,
+  firstName: string,
   lastName: string,
   country: string,
   username: string,

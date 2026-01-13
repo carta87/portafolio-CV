@@ -16,10 +16,10 @@
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
                     <input type="text" class="form-control form-control-user" placeholder="First Name"
-                      formControlName="firsName">
-                    <span *ngIf="fgvalidacion.get('firsName')?.invalid &&
-                        fgvalidacion.get('firsName')?.dirty" class="text-danger">
-                      {{getErrorMessage('firsName')}}
+                      formControlName="firstName">
+                    <span *ngIf="fgvalidacion.get('firstName')?.invalid &&
+                        fgvalidacion.get('firstName')?.dirty" class="text-danger">
+                      {{getErrorMessage('firstName')}}
                     </span>
                   </div>
                   <div class="col-sm-6">

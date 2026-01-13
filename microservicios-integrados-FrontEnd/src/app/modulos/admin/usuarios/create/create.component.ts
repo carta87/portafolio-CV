@@ -23,7 +23,7 @@ export class CreateComponent {
   usuarioService = inject(UsuariosService);
 
   fgvalidacion = this.fb.group({
-    firsName: ['', Validators.required],
+    firstName: ['', Validators.required],
     lastName: ['', Validators.required],
     username: ['', Validators.required],
     country: ['', Validators.required],

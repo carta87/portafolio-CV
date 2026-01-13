@@ -6,11 +6,13 @@ import { GetComponent } from './get/get.component';
 import { EditComponent } from './edit/edit.component';
 import { FiltroComponent } from './filtro/filtro.component';
 import { InfoComponent } from './info/info.component';
+import { AuthGuard } from '../../common/guards/AuthGuard';
 
 const routes: Routes = [
   {
     path: '',
     component: SidebarComponent,
+    canActivate: [AuthGuard],
     children: [
       { path: 'crear', component: CreateComponent },
       { path: 'editar', component: EditComponent },

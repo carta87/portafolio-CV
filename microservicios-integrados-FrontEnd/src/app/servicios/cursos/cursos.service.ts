@@ -46,4 +46,8 @@ export class CursosService {
     return this.htpp.get<CursoModel>(environment.apiUrlCourse + '/search-student/' + id, {headers: this.headers});
   }
 
+  public getInfoCurso(id: number): Observable<string>{
+    return this.htpp.get<string>(environment.apiUrlCourse + '/explainContent/' + id, {headers: this.headers});
+  }
+
 }

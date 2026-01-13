@@ -58,8 +58,15 @@ export class LoginService {
   public logout(): void {
     if (isPlatformBrowser(this.platformId)) {
       sessionStorage.removeItem('token');
+      sessionStorage.removeItem('userData');
     }
     this.currentUserLoginOn.next(false);
+    this.currentUserData.next({
+      username: '',
+      token: '',
+      message: '',
+      status: ''
+    });
   }
 
   private handleError(error: HttpErrorResponse) {
@@ -84,6 +91,20 @@ export class LoginService {
   }
 
   get userToken(): string {
-    return this.currentUserData.value.token;
+    if (isPlatformBrowser(this.platformId)) {
+      return sessionStorage.getItem('token') || '';
+    }
+    return '';
   }
+
+  isTokenExpired(token: string): boolean {
+    try {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      const exp = payload.exp * 1000;
+      return Date.now() > exp;
+    } catch {
+      return true;
+    }
+  }
+
 }

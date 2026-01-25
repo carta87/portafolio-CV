@@ -285,6 +285,7 @@ html {
     z-index: 1;
     width: 100%;
     object-fit: cover;
+    right: 10rem;
     filter: drop-shadow(0 0 .5rem rgba(0, 0, 0, .5));
 }
 
@@ -905,6 +906,11 @@ html {
 
     .sec4__box2 {
         margin: 2.5rem 0;
+    }
+
+    .img-profile {
+        width: 300px;
+        right: 10rem;
     }
 }
 
